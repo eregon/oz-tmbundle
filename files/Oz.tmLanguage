@@ -1,0 +1,65 @@
+{	scopeName = 'source.oz';
+	fileTypes = ( 'oz' );
+	foldingStartMarker = '/\*\*|\{\s*$';
+	foldingStopMarker = '\*\*/|^\s*\}';
+	patterns = (
+		{	name = 'keyword.control.oz';
+			match = '(?x)\b(
+                at|attr|case|catch|class|choice|cond|
+                declare|define|do|dis|else|elsecase|elseif|
+                elseif|end|export|feat|finally|for|from|fun|functor|
+                if|in|import|lex|local|lock|meth|mode|not|of|
+                or|parser|prepare|proc|prod|prop|raise|require|
+                scanner|syn|then|thread|token|try)\b';
+		},
+		{
+		    name = 'keyword.control.comparison.oz';
+		    match = '<|<=|==|/=|>=|>';
+		},
+		{	name = 'keyword.operator.arithmetic.ruby';
+			match = '(\*|\+|\-|/)|\b(div|mod)\b';
+		},
+		{
+		    name = 'comment.line.percentage.oz';
+		    match = '(%).*$\n?';
+		},
+		{
+		    name = 'constant.numeric.oz';
+			match = '\b(\d+)\b';
+		},
+		{	name = 'constant.language.oz';
+			match = '\b(nil|true|false)\b';
+		},
+		{
+		    name = 'keyword.operator.list.oz';
+		    match = '\b\|\b';
+		},
+		{
+		    name = 'meta.function.oz';
+			match = '(?x)
+			         \b(fun|proc)\b\s+
+			         \{(\w+)
+			            ((?:\s\w+)*)
+			         \}';
+			captures = {
+			    1 = { name = 'keyword.control.proc.oz'; };
+				2 = { name = 'entity.name.function.oz'; };
+				3 = { name = 'variable.parameter.function.oz'; };
+			};
+		},
+		{
+		    name = 'punctuation.section.array.oz';
+			match = '\[|\]';
+		},
+		{	
+		    name = 'string.quoted.double.oz';
+			begin = '"';
+			end = '"';
+			patterns = (
+				{	name = 'constant.character.escape.oz';
+					match = '\\.';
+				},
+			);
+		},
+	);
+}
