@@ -1,6 +1,6 @@
 # TextMate Bundle for the Oz programming language
 
-This is a TextMate Bundle to help development with TextMate for the [Oz](http://www.mozart-oz.org/) programming language.
+TextMate Bundle to help developing with [Oz](http://www.mozart-oz.org/).
 
 ## Install
 
