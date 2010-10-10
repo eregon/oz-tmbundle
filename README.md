@@ -14,6 +14,7 @@ TextMate Bundle to help developing with [Oz](http://www.mozart-oz.org/).
 * Basic Grammar of the language
 * Indentation
 * Some Snippets (fun, if, if/else, local … in … end)
+* Compile and execute scripts and output as html or text (⌘R, ⌘⇧R)
 
 ## Author
 
