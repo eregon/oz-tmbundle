@@ -9,13 +9,18 @@
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>
-		<string>^\s*(end|else|elseif|in|define)\b</string>
+		<string>(?x)
+  (
+    ^\s*(end|else|elseif|in|define)\b
+  )</string>
 		<key>increaseIndentPattern</key>
 		<string>(?x)^\s*
-        \b(class|proc|fun|local|import
-        |if|else|elseif|for|in
-        |case)\b
-        (?!.*?\bend\b)
+    (
+      \b(class|proc|fun|local|import
+      |if|else|elseif|for|in
+      |case)\b
+      (?!.*?\bend\b)
+    )
     .*$</string>
 	</dict>
 	<key>uuid</key>

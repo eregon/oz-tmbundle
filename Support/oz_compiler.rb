@@ -2,18 +2,22 @@ def oz_compile(file)
   file = File.expand_path file
   code = File.read file
 
-  # Remove graphical dependencies
-  code.gsub! /\{(Browse|Show) /, '{System.show '
-
-  # define already "declare"
-  code.gsub! /\bdeclare\b/, ''
-
   unless code =~ /^\s*functor\b/ # if we alredy have the functor, expect it to be right
+    imports = %w[Application System]
+
+    # Try to get modules needed
+    imports |= code.scan(/\b[A-Z]\w+(?=\.\w+)/).uniq
+
+    # Remove graphical dependencies
+    code.gsub! /\{(Browse|Show) /, '{System.show '
+
+    # define already "declare"
+    code.gsub! /\bdeclare\b/, ''
+
     code = <<CODE
 functor
 import
-  Application
-  System
+#{imports.map { |import| "  #{import}" } * "\n"}
 define
 #{code}
 {Application.exit 0}

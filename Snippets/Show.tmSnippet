@@ -3,17 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>case ${1:L}
-	of nil then $2
-	[] H|T then $3
-end</string>
+	<string>{Show $1}
+</string>
 	<key>name</key>
-	<string>case</string>
+	<string>Show</string>
 	<key>scope</key>
 	<string>source.oz</string>
 	<key>tabTrigger</key>
-	<string>case</string>
+	<string>s</string>
 	<key>uuid</key>
-	<string>46CDF2D8-4971-49DD-846B-7B5D9CC0500C</string>
+	<string>60F8E5ED-A188-4B13-9B88-10B49E7E6A7C</string>
 </dict>
 </plist>
