@@ -6,7 +6,7 @@ def oz_compile(file)
     imports = %w[Application System]
 
     # Try to get modules needed
-    imports |= code.scan(/\b[A-Z]\w+(?=\.\w+)/).uniq
+    imports |= code.scan(/\b[A-Z]\w+(?=\.[a-z]\w*)/).uniq
 
     # Remove builtin modules
     imports -= %w[List Tuple]
