@@ -8,6 +8,9 @@ def oz_compile(file)
     # Try to get modules needed
     imports |= code.scan(/\b[A-Z]\w+(?=\.\w+)/).uniq
 
+    # Remove builtin modules
+    imports -= %w[List Tuple]
+
     # Remove graphical dependencies
     code.gsub! /\{(Browse|Show) /, '{System.show '
 
