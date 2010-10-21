@@ -21,10 +21,10 @@
 			<string>(?x)\b(
                 at|attr|case|catch|class|choice|cond|
                 declare|define|do|dis|else|elsecase|elseif|
-                elseif|end|export|feat|finally|for|from|fun|functor|
+                end|export|feat|finally|for|from|fun|functor|
                 if|in|import|lex|local|lock|meth|mode|not|of|
                 or|parser|prepare|proc|prod|prop|raise|require|
-                scanner|syn|then|thread|token|try)\b</string>
+                scanner|skip|syn|then|thread|token|try)\b</string>
 			<key>name</key>
 			<string>keyword.control.oz</string>
 		</dict>
