@@ -14,7 +14,7 @@
 		},
 		{
 		    name = 'keyword.control.comparison.oz';
-		    match = '<|<=|==|/=|>=|>';
+		    match = '<|=<|==|\\=|>=|>';
 		},
 		{	name = 'keyword.operator.arithmetic.ruby';
 			match = '(\*|\+|\-|/)|\b(div|mod)\b';
