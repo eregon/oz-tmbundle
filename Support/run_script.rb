@@ -15,6 +15,6 @@ if errors.empty?
 else
   TextMate::HTMLOutput.show(:title => "Failed to compile #{File.basename(ENV['TM_FILEPATH'])}", :sub_title => oz_version) do |io|
     io << "<span class=\"stderr\">#{htmlize(errors)}</span>"
-    io << htmlize(`#{executable}`)
+    io << htmlize(`#{executable}`) if File.exist? executable
   end
 end

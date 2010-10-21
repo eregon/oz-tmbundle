@@ -10,5 +10,5 @@ if errors.empty?
   system(executable)
 else
   $stderr.puts errors
-  system(executable)
+  system(executable) if File.exist? executable
 end
