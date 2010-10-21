@@ -4,8 +4,11 @@ TextMate.save_current_document('oz')
 
 require File.expand_path('../oz_compiler', __FILE__)
 
-if result = oz_compile(ENV['TM_FILEPATH']) { |executable|
-    system(executable)
-  }
-  $stderr.puts result
+errors, executable = oz_compile(ENV['TM_FILEPATH'])
+
+if errors.empty?
+  system(executable)
+else
+  $stderr.puts errors
+  system(executable)
 end

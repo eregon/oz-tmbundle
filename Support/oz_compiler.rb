@@ -29,22 +29,17 @@ CODE
   end
 
   executable = File.join File.dirname(file), File.basename(file, '.oz')
-  result = nil
+  errors = ''
   tmpfile = "#{executable}.oz.tmp"
   File.open(tmpfile, "w+") { |fh| fh.write code }
 
   IO.popen(["ozc", "-x", "-o#{executable}", tmpfile, :err => [:child, :out]]) do |io|
     begin
-      result = io.read
+      errors = io.read
     ensure
       File.unlink tmpfile
     end
   end
 
-  if result.empty?
-    yield(executable)
-    nil
-  else
-    result
-  end
+  return errors, executable
 end
