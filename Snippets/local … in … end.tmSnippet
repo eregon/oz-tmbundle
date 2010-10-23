@@ -9,7 +9,7 @@ in
 	$2
 end</string>
 	<key>name</key>
-	<string>local … in … end</string>
+	<string>in - local … in … end</string>
 	<key>scope</key>
 	<string>source.oz</string>
 	<key>tabTrigger</key>

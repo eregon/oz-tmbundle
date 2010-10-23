@@ -3,15 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>{Browse $1}
-</string>
+	<string>if ${1:condition} then $2 else $3 end</string>
 	<key>name</key>
-	<string>b - Browse</string>
+	<string>ie - if … else</string>
 	<key>scope</key>
 	<string>source.oz</string>
 	<key>tabTrigger</key>
-	<string>b</string>
+	<string>ie</string>
 	<key>uuid</key>
-	<string>D7F0EAF5-6C98-48CD-AA48-C6FF0342ECC1</string>
+	<string>6AF00B64-3570-4456-A781-23E89236C4CF</string>
 </dict>
 </plist>

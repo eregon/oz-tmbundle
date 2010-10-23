@@ -9,7 +9,7 @@ else
 	$3
 end</string>
 	<key>name</key>
-	<string>ife</string>
+	<string>ife - if … else</string>
 	<key>scope</key>
 	<string>source.oz</string>
 	<key>tabTrigger</key>

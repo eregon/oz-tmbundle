@@ -6,7 +6,7 @@
 	<string>{Show $1}
 </string>
 	<key>name</key>
-	<string>Show</string>
+	<string>b - Show</string>
 	<key>scope</key>
 	<string>source.oz</string>
 	<key>tabTrigger</key>
