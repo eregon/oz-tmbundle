@@ -6,9 +6,8 @@ require File.expand_path('../oz_compiler', __FILE__)
 
 errors, executable = oz_compile(ENV['TM_FILEPATH'])
 
-if errors.empty?
+if executable
   system(executable)
 else
   $stderr.puts errors
-  system(executable) if File.exist? executable
 end

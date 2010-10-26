@@ -10,11 +10,10 @@ oz_version = `ozc -v 2>&1`.split("\n").first
 
 errors, executable = oz_compile(ENV['TM_FILEPATH'])
 
-if errors.empty?
+if executable
   TextMate::Executor.run(executable, :use_hashbang => false, :version_replace => oz_version)
 else
   TextMate::HTMLOutput.show(:title => "Failed to compile #{File.basename(ENV['TM_FILEPATH'])}", :sub_title => oz_version) do |io|
     io << "<span class=\"stderr\">#{htmlize(errors)}</span>"
-    io << htmlize(`#{executable}`) if File.exist? executable
   end
 end

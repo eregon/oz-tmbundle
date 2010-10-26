@@ -41,5 +41,7 @@ CODE
     end
   end
 
+  executable = nil if !errors.empty? and !errors.include?('-------------------- accepted')
+
   return errors, executable
 end
