@@ -2,8 +2,9 @@
   (
     ^\s*(
       (end|else|elseif|in|define)\b
+    |
       # case .. of nil then .. (brackets) H|T then
-      |\bof\snil\sthen\b|\[\]\s\w+\|\w+\sthen
+      \bof\snil\s+then\b|\[\]\s\w+\|\w+\sthen
     )
   )';
 	increaseIndentPattern = '(?x)^\s*
@@ -12,10 +13,10 @@
         class|proc|fun|local|import
         |if|else|elseif|for|in
         |case
-      )\b
+      )\b(?!.*?\bend\b)
+    |
       # case .. of nil then .. (brackets) H|T then
-      |\bof\snil\sthen\b|\[\]\s\w+\|\w+\sthen
-      (?!.*?\bend\b)
+      \bof\snil\s+then\b|\[\]\s\w+\|\w+\sthen
     )
     .*$';
 }
