@@ -4,8 +4,8 @@
 <dict>
 	<key>content</key>
 	<string>case ${1:L}
-	of nil then $2
-	[] H|T then $3
+of nil then $2
+[] H|T then $3
 end</string>
 	<key>name</key>
 	<string>case</string>
