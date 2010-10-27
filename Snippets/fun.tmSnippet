@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>fun {${1:Name}}
+	<string>fun {${1:Name} ${2:Args}}
 	$0
 end</string>
 	<key>name</key>
