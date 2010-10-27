@@ -14,7 +14,7 @@
     ^\s*(
       (end|else|elseif|in|define)\b
       # case .. of nil then .. (brackets) H|T then
-      |\bof\snil\sthen\b|\[\]\s\w\|\w\sthen
+      |\bof\snil\sthen\b|\[\]\s\w+\|\w+\sthen
     )
   )</string>
 		<key>increaseIndentPattern</key>
@@ -26,7 +26,7 @@
         |case
       )\b
       # case .. of nil then .. (brackets) H|T then
-      |\bof\snil\sthen\b|\[\]\s\w\|\w\sthen
+      |\bof\snil\sthen\b|\[\]\s\w+\|\w+\sthen
       (?!.*?\bend\b)
     )
     .*$</string>
