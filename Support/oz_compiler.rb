@@ -14,6 +14,11 @@ def oz_compile(file)
     # Remove graphical dependencies
     code.gsub! /\{(Browse|Show) /, '{System.show '
 
+    # warn if no declare
+    if code !~ /\bdeclare\b/ and (code =~ /\bfun\b/ or code =~ /\b=\b/)
+      $stderr.puts "Warning: no declare found, it won't work with emacs"
+    end
+
     # define already "declare"
     code.gsub! /\bdeclare\b/, ''
 
