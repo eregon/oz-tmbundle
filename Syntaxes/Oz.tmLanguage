@@ -36,7 +36,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(\*|\+|\-|/)|\b(div|mod)\b</string>
+			<string>(\*|\+|\-|/|~)|\b(div|mod)\b</string>
 			<key>name</key>
 			<string>keyword.operator.arithmetic.ruby</string>
 		</dict>

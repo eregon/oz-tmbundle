@@ -17,7 +17,7 @@
 		    match = '<|=<|==|\\=|>=|>';
 		},
 		{	name = 'keyword.operator.arithmetic.ruby';
-			match = '(\*|\+|\-|/)|\b(div|mod)\b';
+			match = '(\*|\+|\-|/|~)|\b(div|mod)\b';
 		},
 		{
 		    name = 'comment.line.percentage.oz';
