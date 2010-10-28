@@ -42,7 +42,7 @@ CODE
     begin
       errors = io.read
     ensure
-      File.unlink tmpfile
+      #File.unlink tmpfile
     end
   end
 

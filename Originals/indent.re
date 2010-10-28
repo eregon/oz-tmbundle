@@ -4,7 +4,7 @@
       (end|else|elseif|in|define)\b
     |
       # case .. of nil then .. (brackets) H|T then
-      \bof\snil\s+then\b|\[\]\s\w+\|\w+\sthen
+      \bof\s.+\s+then\b|\[\]\s.+\sthen
     )
   )';
 	increaseIndentPattern = '(?x)^\s*
@@ -16,7 +16,7 @@
       )\b(?!.*?\bend\b)
     |
       # case .. of nil then .. (brackets) H|T then
-      \bof\snil\s+then\b|\[\]\s\w+\|\w+\sthen
+      \bof\s.+\s+then\b|\[\]\s.+\sthen
     )
     .*$';
 }
