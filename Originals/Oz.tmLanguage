@@ -51,7 +51,7 @@
 		    name = 'punctuation.section.array.oz';
 			match = '\[|\]';
 		},
-		{	
+		/*{
 		    name = 'string.quoted.double.oz';
 			begin = '"';
 			end = '"';
@@ -60,7 +60,7 @@
 					match = '\\.';
 				},
 			);
-		},
+		},*/
 		{
 		    name = 'string.quoted.simple.oz';
 		    begin = "'";
