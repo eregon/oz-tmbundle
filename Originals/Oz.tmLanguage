@@ -61,5 +61,15 @@
 				},
 			);
 		},
+		{
+		    name = 'string.quoted.simple.oz';
+		    begin = "'";
+		    end = "'";
+		    patterns = (
+				{	name = 'constant.character.escape.oz';
+					match = '\\.';
+				},
+			);
+		}
 	);
 }
