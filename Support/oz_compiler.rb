@@ -8,7 +8,7 @@ def oz_compile(file)
     code_without_comments = code.lines.reject { |line| line =~ /^\s*%/ }.join
 
     # Try to get modules needed
-    imports |= code_without_comments.scan(/\b[A-Z]\w+(?=\.[a-z]\w*)/).uniq
+    imports |= code_without_comments.scan(/\b[A-Z][a-z]+(?=\.[a-z]\w*)/).uniq
 
     # Remove builtin modules
     imports -= %w[List Tuple]
