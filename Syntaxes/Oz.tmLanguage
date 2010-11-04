@@ -115,6 +115,12 @@
 				</dict>
 			</array>
 		</dict>
+		<dict>
+			<key>match</key>
+			<string>(@)[A-Z]\w*</string>
+			<key>name</key>
+			<string>variable.other.readwrite.cell.oz</string>
+		</dict>
 	</array>
 	<key>scopeName</key>
 	<string>source.oz</string>

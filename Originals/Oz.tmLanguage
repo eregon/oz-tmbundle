@@ -70,6 +70,9 @@
 					match = '\\.';
 				},
 			);
-		}
+		},
+		{	name = 'variable.other.readwrite.cell.oz';
+			match = '(@)[A-Z]\w*';
+		},
 	);
 }
