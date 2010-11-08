@@ -30,15 +30,21 @@
 		</dict>
 		<dict>
 			<key>match</key>
+			<string>=|:=</string>
+			<key>name</key>
+			<string>keyword.operator.assignement.oz</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>&lt;|=&lt;|==|\\=|&gt;=|&gt;</string>
 			<key>name</key>
-			<string>keyword.control.comparison.oz</string>
+			<string>keyword.operator.comparison.oz</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>(\*|\+|\-|/|~)|\b(div|mod)\b</string>
 			<key>name</key>
-			<string>keyword.operator.arithmetic.ruby</string>
+			<string>keyword.operator.arithmetic.oz</string>
 		</dict>
 		<dict>
 			<key>match</key>

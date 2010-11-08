@@ -13,10 +13,14 @@
                 scanner|skip|syn|then|thread|token|try)\b';
 		},
 		{
-		    name = 'keyword.control.comparison.oz';
+		    name = 'keyword.operator.assignement.oz';
+		    match = '=|:=';
+		},
+		{
+		    name = 'keyword.operator.comparison.oz';
 		    match = '<|=<|==|\\=|>=|>';
 		},
-		{	name = 'keyword.operator.arithmetic.ruby';
+		{	name = 'keyword.operator.arithmetic.oz';
 			match = '(\*|\+|\-|/|~)|\b(div|mod)\b';
 		},
 		{
