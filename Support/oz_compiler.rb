@@ -1,17 +1,23 @@
 def oz_compile(file)
   file = File.expand_path file
   code = File.read file
+  errors = ''
 
   unless code =~ /^\s*functor\b/ # if we alredy have the functor, expect it to be right
-    imports = %w[Application System]
+    all_modules = Dir['/Applications/Mozart.app/Contents/Resources/cache/x-oz/system/*.ozf'].map { |f| File.basename(f, '.ozf') }
 
     code_without_comments = code.lines.reject { |line| line =~ /^\s*%/ }.join
 
     # Try to get modules needed
-    imports |= code_without_comments.scan(/\b[A-Z][a-z]+(?=\.[a-z]\w*)/).uniq
+    imports = code_without_comments.scan(/\b[A-Z][A-Za-z]+(?=\.[a-z]\w*)/).uniq
 
     # Remove builtin modules
-    imports -= %w[List Tuple]
+    imports -= %w[Array List Tuple Record Dictionary]
+
+    (imports-all_modules).each { |unknown| errors << "Unknown module: #{unknown}\n" }
+
+    imports &= all_modules
+    imports |= %w[Application System]
 
     # Remove graphical dependencies
     code.gsub! /\{(Browse|Show) /, '{System.show '
@@ -33,19 +39,19 @@ CODE
   end
 
   executable = File.join File.dirname(file), File.basename(file, '.oz')
-  errors = ''
+  compilation = ''
   tmpfile = "#{executable}.oz.tmp"
   File.open(tmpfile, "w+") { |fh| fh.write code }
 
   IO.popen(["ozc", "-x", "-o#{executable}", tmpfile, :err => [:child, :out]]) do |io|
     begin
-      errors = io.read
+      compilation = io.read
     ensure
       File.unlink tmpfile
     end
   end
 
-  executable = nil if !errors.empty? and !errors.include?('-------------------- accepted')
+  executable = nil if !compilation.empty? and !compilation.include?('-------------------- accepted')
 
-  return errors, executable
+  return errors+compilation, executable
 end
