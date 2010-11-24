@@ -10,7 +10,9 @@
                 end|export|feat|finally|for|from|fun|functor|
                 if|in|import|lex|local|lock|meth|mode|not|of|
                 or|orelse|parser|prepare|proc|prod|prop|raise|require|
-                scanner|skip|syn|then|thread|token|try)\b';
+                scanner|skip|syn|then|thread|token|try)\b
+            |
+                ^\s*\[\]';
 		},
 		{
 		    name = 'keyword.operator.assignement.oz';
