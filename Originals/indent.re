@@ -7,7 +7,7 @@
       \bof\s.+\s+then\b|\[\]\s.+\sthen
     )
   )';
-	increaseIndentPattern = '(?x)^\s*
+	increaseIndentPattern = '(?x)^(\s*|.+=\s*)
     (
       \b(
         class|proc|fun|local|import

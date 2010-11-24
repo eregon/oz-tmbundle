@@ -19,7 +19,7 @@
     )
   )</string>
 		<key>increaseIndentPattern</key>
-		<string>(?x)^\s*
+		<string>(?x)^(\s*|.+=\s*)
     (
       \b(
         class|proc|fun|local|import
