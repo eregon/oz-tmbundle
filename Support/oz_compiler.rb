@@ -3,8 +3,8 @@ def oz_compile(file)
   code = File.read file
   errors = ''
 
-  unless code =~ /^\s*functor\b/ # if we alredy have the functor, expect it to be right
-    all_modules = Dir['/Applications/Mozart.app/Contents/Resources/cache/x-oz/system/*.ozf'].map { |f| File.basename(f, '.ozf') }
+  unless code =~ /^\s*functor\b/ # if we already have the functor, expect it to be right
+    all_modules = Dir['/Applications/Mozart.app/Contents/Resources/cache/x-oz/system/*.ozf'].map { |f| File.basename(f, '.ozf') } << 'Module'
 
     code_without_comments = code.lines.reject { |line| line =~ /^\s*%/ }.join
 
