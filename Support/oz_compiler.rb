@@ -1,10 +1,11 @@
-def oz_compile(file)
+def oz_compile(file, options = [])
   file = File.expand_path file
   code = File.read file
   errors = ''
 
   unless code =~ /^\s*functor\b/ # if we already have the functor, expect it to be right
-    all_modules = Dir['/Applications/Mozart.app/Contents/Resources/cache/x-oz/system/*.ozf'].map { |f| File.basename(f, '.ozf') } + %w[Applications System Module Property]
+    all_modules = Dir['/Applications/Mozart.app/Contents/Resources/cache/x-oz/system/*.ozf'].map { |f| File.basename(f, '.ozf') } +
+      %w[Applications System Module Property]
 
     code_without_comments = code.lines.reject { |line| line =~ /^\s*%/ }.join
 
@@ -47,14 +48,14 @@ CODE
 
   executable = File.join File.dirname(file), File.basename(file, '.oz')
   compilation = ''
-  tmpfile = "#{executable}.oz.tmp"
-  File.open(tmpfile, "w+") { |fh| fh.write code }
+  functor = "#{executable}.functor.oz"
+  File.open(functor, "w+") { |fh| fh.write code }
 
-  IO.popen(["ozc", "-x", "-o#{executable}", tmpfile, :err => [:child, :out]]) do |io|
+  IO.popen(["ozc", "-x", "-o#{executable}", functor, :err => [:child, :out]]) do |io|
     begin
       compilation = io.read
     ensure
-      File.unlink tmpfile
+      File.unlink functor unless options.include? :keep
     end
   end
 
