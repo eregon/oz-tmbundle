@@ -4,7 +4,7 @@ def oz_compile(file)
   errors = ''
 
   unless code =~ /^\s*functor\b/ # if we already have the functor, expect it to be right
-    all_modules = Dir['/Applications/Mozart.app/Contents/Resources/cache/x-oz/system/*.ozf'].map { |f| File.basename(f, '.ozf') } << 'Module'
+    all_modules = Dir['/Applications/Mozart.app/Contents/Resources/cache/x-oz/system/*.ozf'].map { |f| File.basename(f, '.ozf') } + %w[Applications System Module Property]
 
     code_without_comments = code.lines.reject { |line| line =~ /^\s*%/ }.join
 
@@ -18,6 +18,13 @@ def oz_compile(file)
 
     imports &= all_modules
     imports |= %w[Application System]
+
+    # {'NewWrapper' => 'Wrapper'}.each_pair { |function, import|
+    #   if code_without_comments =~ /\{#{function}\b/
+    #     imports << import
+    #   end
+    # }
+    # p imports
 
     # Remove graphical dependencies
     code.gsub! /\{(Browse|Show) /, '{System.show '
