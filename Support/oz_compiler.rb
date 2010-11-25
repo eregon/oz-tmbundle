@@ -13,7 +13,7 @@ def oz_compile(file, options = [])
     imports = code_without_comments.scan(/\b[A-Z][A-Za-z]+(?=\.[a-z]\w*)/).uniq
 
     # Remove builtin modules
-    imports -= %w[Array List Tuple Record Dictionary]
+    imports -= %w[Array List Tuple Record Dictionary Char]
 
     (imports-all_modules).each { |unknown| errors << "Unknown module: #{unknown}\n" }
 
