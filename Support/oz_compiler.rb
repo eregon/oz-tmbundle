@@ -20,13 +20,6 @@ def oz_compile(file, options = [])
     imports &= all_modules
     imports |= %w[Application System]
 
-    # {'NewWrapper' => 'Wrapper'}.each_pair { |function, import|
-    #   if code_without_comments =~ /\{#{function}\b/
-    #     imports << import
-    #   end
-    # }
-    # p imports
-
     # Remove graphical dependencies
     code.gsub! /\{(Browse|Show) /, '{System.show '
 
