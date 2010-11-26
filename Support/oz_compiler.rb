@@ -12,8 +12,8 @@ def oz_compile(file, options = [])
     # Try to get modules needed
     imports = code_without_comments.scan(/\b[A-Z][A-Za-z]+(?=\.[a-z]\w*)/).uniq
 
-    # Remove builtin modules
-    imports -= %w[Array List Tuple Record Dictionary Char]
+    # Remove builtin modules (some of them might be explicitely loaded with Module.link for extras)
+    imports -= %w[Array List Tuple Record Dictionary Char String]
 
     (imports-all_modules).each { |unknown| errors << "Unknown module: #{unknown}\n" }
 
