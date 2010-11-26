@@ -5,7 +5,7 @@ def oz_compile(file, options = [])
 
   unless code =~ /^\s*functor\b/ # if we already have the functor, expect it to be right
     all_modules = Dir['/Applications/Mozart.app/Contents/Resources/cache/x-oz/system/*.ozf'].map { |f| File.basename(f, '.ozf') } +
-      %w[Applications System Module Property]
+      %w[Applications System OS Module Property Resolve]
 
     code_without_comments = code.lines.reject { |line| line =~ /^\s*%/ }.join
 
