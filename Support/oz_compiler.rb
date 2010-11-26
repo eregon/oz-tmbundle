@@ -10,7 +10,7 @@ def oz_compile(file, options = [])
     code_without_comments = code.lines.reject { |line| line =~ /^\s*%/ }.join
 
     # Try to get modules needed
-    imports = code_without_comments.scan(/\b[A-Z][A-Za-z]+(?=\.[a-z]\w*)/).uniq
+    imports = code_without_comments.scan(/(?:\{|=\s*|\{\w+\s)([A-Z][A-Za-z]+)\.[a-z]\w*/).map(&:first).uniq
 
     # Remove builtin modules (some of them might be explicitely loaded with Module.link for extras)
     imports -= %w[Array List Tuple Record Dictionary Char String]
