@@ -14,7 +14,7 @@ def oz_compile(file, options = [])
     imports = code_without_comments.scan(/(?:\{|=\s*|\{\w+\s)([A-Z][A-Za-z]+)\.[a-z]\w*/).map(&:first).uniq
 
     # Remove builtin modules (some of them might be explicitely loaded with Module.link for extras)
-    imports -= %w[Array List Tuple Record Dictionary Char String]
+    imports -= %w[Array List Tuple Record Dictionary Char String Atom]
 
     (imports-all_modules).each { |unknown| errors << "Unknown module: #{unknown}\n" unless ignore.include? unknown }
 
