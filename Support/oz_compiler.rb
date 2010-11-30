@@ -2,6 +2,7 @@ def oz_compile(file, options = [])
   file = File.expand_path file
   code = File.read file
   errors = ''
+  ignore = %w[Path]
 
   unless code =~ /^\s*functor\b/ # if we already have the functor, expect it to be right
     all_modules = Dir['/Applications/Mozart.app/Contents/Resources/cache/x-oz/system/*.ozf'].map { |f| File.basename(f, '.ozf') } +
@@ -15,7 +16,7 @@ def oz_compile(file, options = [])
     # Remove builtin modules (some of them might be explicitely loaded with Module.link for extras)
     imports -= %w[Array List Tuple Record Dictionary Char String]
 
-    (imports-all_modules).each { |unknown| errors << "Unknown module: #{unknown}\n" }
+    (imports-all_modules).each { |unknown| errors << "Unknown module: #{unknown}\n" unless ignore.include? unknown }
 
     imports &= all_modules
     imports |= %w[Application System]
