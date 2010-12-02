@@ -12,7 +12,7 @@
       \b(
         class|proc|fun|local|import
         |if|else|elseif|for|in
-        |case
+        |case|meth
       )\b(?!.*?\bend\b)
     |
       # case .. of nil then .. (brackets) H|T then
