@@ -1,8 +1,15 @@
+INSERT = /^\\insert '(.+)'$/
+
 def oz_compile(file, options = [])
   file = File.expand_path file
   code = File.read file
   errors = ''
   ignore = %w[Path]
+
+  # \insert 'code.oz'
+  while code =~ INSERT
+    code.gsub!(INSERT) { File.read(File.expand_path("../#{$1}", file)) }
+  end
 
   unless code =~ /^\s*functor\b/ # if we already have the functor, expect it to be right
     all_modules = Dir['/Applications/Mozart.app/Contents/Resources/cache/x-oz/system/*.ozf'].map { |f| File.basename(f, '.ozf') } +
