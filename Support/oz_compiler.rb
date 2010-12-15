@@ -35,7 +35,7 @@ def oz_compile(file, options = [])
     code.gsub! /\bdeclare\b/, ''
 
     # do not exit if we have a browser
-    code << "\n{Application.exit 0}" unless imports.include? 'Browser'
+    code << "\n{Application.exit 0}" unless imports.include? 'Browser' or code_without_comments.include? 'thread'
 
     code = <<CODE
 functor
