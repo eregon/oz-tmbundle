@@ -18,6 +18,20 @@
 	<array>
 		<dict>
 			<key>match</key>
+			<string>(%).*$\n?</string>
+			<key>name</key>
+			<string>comment.line.percentage.oz</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>/\*</string>
+			<key>end</key>
+			<string>\*/</string>
+			<key>name</key>
+			<string>comment.block.documentation.oz</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>(?x)\b(
                 andthen|at|attr|case|catch|class|choice|cond|
                 declare|define|do|dis|else|elsecase|elseif|
@@ -47,12 +61,6 @@
 			<string>(\*|\+|\-|/|~)|\b(div|mod)\b</string>
 			<key>name</key>
 			<string>keyword.operator.arithmetic.oz</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(%).*$\n?</string>
-			<key>name</key>
-			<string>comment.line.percentage.oz</string>
 		</dict>
 		<dict>
 			<key>match</key>
